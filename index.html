@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Sistema Solar com Nuvem de Oort</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="controls-panel">
+        <span>Controles:</span>
+        <button id="toggleOort">Mostrar/Esconder Nuvem de Oort</button>
+        <button id="toggleOrbits">Mostrar/Esconder Órbitas</button>
+        <button id="resetView">Resetar Câmera</button>
+    </div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.128.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.128.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="sistema_solar.js"></script>
+</body>
+</html>
