@@ -1,105 +1,118 @@
+/* Remove todas as margens e esconde a barra de rolagem padrão */
 body {
     margin: 0;
-    overflow: hidden;
+    overflow: hidden;  /* Esconde barras de rolagem para a tela cheia funcionar */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* PAINEL DE INFORMAÇÕES */
 #info {
-    position: absolute;
-    top: 20px;
-    left: 20px;
+    position: absolute;   /* Fixo na tela, independente da rolagem */
+    top: 20px;            /* Distância do topo */
+    left: 20px;           /* Distância da esquerda */
     color: white;
-    background: rgba(0,0,0,0.7);
-    padding: 10px 20px;
-    border-radius: 8px;
-    z-index: 100;
-    pointer-events: none;
-    backdrop-filter: blur(5px);
+    background: rgba(0,0,0,0.7);  /* Fundo preto com 70% de opacidade */
+    padding: 10px 20px;   /* Espaçamento interno */
+    border-radius: 8px;   /* Cantos arredondados */
+    z-index: 100;         /* Fica acima de tudo (número alto) */
+    pointer-events: none; /* Impede que o mouse interaja (clicar através) */
+    backdrop-filter: blur(5px);  /* Efeito de desfoque no fundo */
     font-size: 14px;
 }
 
+/*PAINEL DE CONTROLES*/
 #controls {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
+    bottom: 20px;         /* Distância do fundo */
+    left: 20px;           /* Distância da esquerda */
     color: white;
     background: rgba(0,0,0,0.7);
     padding: 8px 15px;
     border-radius: 8px;
     z-index: 100;
     font-size: 12px;
-    font-family: monospace;
-    pointer-events: none;
+    font-family: monospace;  /* Fonte de espaçamento fixo (estilo código) */
+    pointer-events: none;     /* Não interage com clique */
 }
 
+/* PAINEL DE BOTÕES */
 .controls-panel {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(0,0,0,0.8);
-    padding: 12px;
-    border-radius: 8px;
+    bottom: 20px;          /* Distância do fundo */
+    right: 20px;           /* Distância da direita */
+    background: rgba(0,0,0,0.8);  /* Fundo preto com 80% opacidade (mais escuro) */
+    padding: 12px;         /* Espaçamento interno */
+    border-radius: 8px;    /* Cantos arredondados */
     color: white;
-    z-index: 100;
+    z-index: 100;          /* Fica sobreposto */
     font-family: 'Segoe UI', sans-serif;
     font-size: 12px;
-    backdrop-filter: blur(5px);
-    pointer-events: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    backdrop-filter: blur(5px);  /* Efeito vidro fosco */
+    pointer-events: auto;        /* PERMITE clicar nos botões (diferente dos outros) */
+    display: flex;               /* Layout flexível */
+    flex-direction: column;      /* Botões empilhados verticalmente */
+    gap: 8px;                    /* Espaço entre os botões */
 }
 
+/* ESTILO DOS BOTÕES*/
 .controls-panel button {
-    background: #4CAF50;
-    color: white;
-    border: none;
-    padding: 5px 12px;
-    border-radius: 4px;
-    cursor: pointer;
+    background: #4CAF50;      /* Cor verde */
+    color: white;             /* Texto branco */
+    border: none;             /* Remove borda padrão */
+    padding: 5px 12px;        /* Espaçamento interno */
+    border-radius: 4px;       /* Cantos levemente arredondados */
+    cursor: pointer;          /* Muda o cursor para mãozinha */
     font-size: 12px;
-    transition: all 0.3s;
+    transition: all 0.3s;     /* Transição suave para animações */
 }
 
+/* Efeito quando o mouse passa por cima do botão */
 .controls-panel button:hover {
-    background: #45a049;
-    transform: scale(1.05);
+    background: #45a049;      /* Verde um pouco mais escuro */
+    transform: scale(1.05);   /* Aumenta 5% de tamanho */
 }
 
+/*ANIMAÇÃO DE FADE-IN (aparecimento suave)*/
 @keyframes fadeIn {
     from {
-        opacity: 0;
-        transform: translateY(-10px);
+        opacity: 0;               /* Começa invisível */
+        transform: translateY(-10px);  /* Começa 10px acima */
     }
     to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1;               /* Termina totalmente visível */
+        transform: translateY(0); /* Termina na posição original */
     }
 }
 
+/* Aplica a animação ao painel de controles */
 .controls-panel {
-    animation: fadeIn 0.5s ease-out;
+    animation: fadeIn 0.5s ease-out;  /* Duração 0.5 segundos, saída suave */
 }
 
+/* RESPONSIVIDADE - TELAS PEQUENAS*/
 @media (max-width: 768px) {
+    /* Ajustes para telas menores que 768px de largura */
     .controls-panel { 
-        font-size: 10px;
-        bottom: 10px;
-        right: 10px;
-        padding: 8px;
+        font-size: 10px;        /* Texto um pouco menor */
+        bottom: 10px;           /* Menos espaço do fundo */
+        right: 10px;            /* Menos espaço da direita */
+        padding: 8px;           /* Menos espaçamento interno */
     }
+    
     #info { 
-        font-size: 10px; 
-        top: 10px; 
-        left: 10px;
+        font-size: 10px;        /* Texto menor */
+        top: 10px;              /* Menos espaço do topo */
+        left: 10px;             /* Menos espaço da esquerda */
     }
+    
     #info h2 {
-        font-size: 14px;
-        margin: 5px 0;
+        font-size: 14px;        /* Título menor */
+        margin: 5px 0;          /* Menos margem */
     }
+    
     #controls {
-        font-size: 8px;
-        bottom: 10px;
-        left: 10px;
+        font-size: 8px;         /* Texto bem pequeno */
+        bottom: 10px;           /* Menos espaço do fundo */
+        left: 10px;             /* Menos espaço da esquerda */
     }
 }
